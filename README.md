@@ -13,6 +13,15 @@ export CIRCLECI_TOKEN=<YOUR CIRCLECI TOKEN>
 ./set_circleci_env_variable.py --key "TEST_KEY" --value "TEST_VALUE"
 ```
 
+### Setting environment data from a file
+
+```
+export GITHUB_OWNER=<YOUR GITHUB ORG NAME OR USERNAME>
+export GITHUB_REPO=<YOUR GITHUB REPO NAME>
+export CIRCLECI_TOKEN=<YOUR CIRCLECI TOKEN>
+./set_circleci_env_variable.py --key "TEST_KEY" --value "$(cat YOUR_FILE_PATH)"
+```
+
 ### Setting multiple environment variables
 
 ``` bash
