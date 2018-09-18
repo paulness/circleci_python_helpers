@@ -3,6 +3,7 @@ Simple Python scripts for CircleCI
 
 * `set_circleci_env_variable.py` - set environment variables in CircleCI through code
 * `trigger_circleci_job.py` - triggers a job in circleci with temporary environment variables that exist for the duration of the job
+* `delete_all_circleci_env_variables.py` - cleans up all the environment variables by deleting them for a given project **use caution**
 
 
 ## Usage
@@ -44,5 +45,17 @@ export GITHUB_REPO=<YOUR GITHUB REPO NAME>
 export CIRCLECI_TOKEN=<YOUR CIRCLECI TOKEN>
 export CIRCLECI_JOB_ENV_EXAMPLE1="Test 1"
 export CIRCLECI_JOB_ENV_EXAMPLE2="Test 2"
-./trigger_circleci_job.py --repo "<YOUR GITHUB REPO HERE>" --branch "<YOUR GITHUB BRANCH HERE>" --circle-job "<YOUR CIRCLECI JOB NAME HERE>"
+./trigger_circleci_job.py
+    --repo "<YOUR GITHUB REPO HERE>"
+    --branch "<YOUR GITHUB BRANCH HERE>"
+    --circle-job "<YOUR CIRCLECI JOB NAME HERE>"
+```
+
+### Deleting all the environment variables for a project in CircleCI
+
+``` bash
+./delete_all_circleci_env_variables.py
+    --circle_token "<YOUR CIRCLECI TOKEN>"
+    --github_owner "<YOUR GITHUB ORG OR USERNAME>"
+    --github_repo "<YOUR GITHUB REPO NAME>"
 ```

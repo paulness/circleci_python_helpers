@@ -11,16 +11,16 @@
       "program": "${workspaceFolder}/trigger_circleci_job.py",
       "console": "integratedTerminal",
       "args": [
-          "--repo", "<YOUR GITHUB REPO HERE>",
-          "--branch", "<YOUR GITHUB BRANCH HERE>",
-          "--circle-job",
-          "<YOUR CIRCLECI JOB NAME HERE>"
-        ],
-      "env": {
-          "GITHUB_OWNER": "<YOUR GITHUB ORG HERE>",
-          "CIRCLECI_TOKEN": "<YOUR TOKEN HERE>",
-          "CIRCLECI_JOB_ENV_TEST1": "TESTING"
-        }
+        "--repo", "<YOUR GITHUB REPO HERE>",
+        "--branch", "<YOUR GITHUB BRANCH HERE>",
+        "--circle-job",
+        "<YOUR CIRCLECI JOB NAME HERE>"
+      ],
+    "env": {
+        "GITHUB_OWNER": "<YOUR GITHUB ORG HERE>",
+        "CIRCLECI_TOKEN": "<YOUR TOKEN HERE>",
+        "CIRCLECI_JOB_ENV_TEST1": "TESTING"
+      }
     },
     {
         "name": "Set circleci environment variable",
@@ -36,6 +36,18 @@
             "GITHUB_REPO": "<YOUR GITHUB REPO NAME HERE>",
             "CIRCLECI_TOKEN": "<YOUR TOKEN HERE>"
           }
+    },
+      {
+        "name": "Delete all circleci environment variables",
+        "type": "python",
+        "request": "launch",
+        "program": "${workspaceFolder}/delete_all_circleci_env_variables.py",
+        "console": "integratedTerminal",
+        "args": [
+            "--circle-token", "<YOUR TOKEN HERE>",
+            "--github-repo", "<YOUR GITHUB REPO NAME HERE>",
+            "--github-owner", "<YOUR GITHUB ORG HERE>"
+        ],
       }
   ]
 }
