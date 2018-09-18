@@ -1,0 +1,41 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Trigger circleci build",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/trigger_circleci_job.py",
+      "console": "integratedTerminal",
+      "args": [
+          "--repo", "<YOUR GITHUB REPO HERE>",
+          "--branch", "<YOUR GITHUB BRANCH HERE>",
+          "--circle-job",
+          "<YOUR CIRCLECI JOB NAME HERE>"
+        ],
+      "env": {
+          "GITHUB_OWNER": "<YOUR GITHUB ORG HERE>",
+          "CIRCLECI_TOKEN": "<YOUR TOKEN HERE>",
+          "CIRCLECI_JOB_ENV_TEST1": "TESTING"
+        }
+    },
+    {
+        "name": "Set circleci environment variable",
+        "type": "python",
+        "request": "launch",
+        "program": "${workspaceFolder}/set_circleci_env_variable.py",
+        "console": "integratedTerminal",
+        "args": [
+            "--key", "TEST_KEY",
+            "--value", "test value" ],
+        "env": {
+            "GITHUB_OWNER": "<YOUR GITHUB ORG HERE>",
+            "GITHUB_REPO": "<YOUR GITHUB REPO NAME HERE>",
+            "CIRCLECI_TOKEN": "<YOUR TOKEN HERE>"
+          }
+      }
+  ]
+}

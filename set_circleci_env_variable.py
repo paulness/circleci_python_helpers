@@ -15,7 +15,8 @@ def set_circleci_env_variable(key, value, github_owner, github_repo, circle_toke
 
     url = "https://circleci.com/api/v1.1/project/github/%s/%s/envvar?circle-token=%s" % (github_owner, github_repo, circle_token)
     payload = { 'name': key, 'value': value }
-    requests.post(url, json=payload)
+    response = requests.post(url, json=payload)
+    response.raise_for_status()
 
 
 def main():
