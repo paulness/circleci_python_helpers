@@ -35,7 +35,7 @@ def main():
     job_args = {}
     for key in os.environ:
         if key.startswith("CIRCLECI_JOB_ENV_"):
-            job_args[key] = os.environ[key]
+            job_args[key.lstrip("CIRCLECI_JOB_ENV_")] = os.environ[key]
 
     job_args['CIRCLE_JOB'] = args.circle_job
     trigger_circleci_build(job_args, github_owner, args.repo, args.branch, circle_token)
